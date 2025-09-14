@@ -171,7 +171,7 @@ func TestHPACKIntegerEncoding(t *testing.T) {
 		{10, 5, 0, []byte{10}},            // Small value fits in prefix
 		{1337, 5, 0, []byte{31, 154, 10}}, // Large value needs continuation
 		{42, 8, 0, []byte{42}},            // Value at octet boundary
-		{255, 8, 0, []byte{255}},          // Max value in 8-bit prefix
+		{255, 8, 0, []byte{255, 0}},       // Max value in 8-bit prefix
 	}
 
 	for _, tc := range testCases {
